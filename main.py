@@ -18,6 +18,8 @@ import time
 topic = '上海疫情 封城'
 start_time = '2022-02-01-0'
 stop_time = '2022-08-01-23'
+
+# 拆分日期
 time_list = []
 start_time = datetime.datetime.strptime(start_time, "%Y-%m-%d-%H")
 stop_time = datetime.datetime.strptime(stop_time, "%Y-%m-%d-%H")
@@ -83,7 +85,8 @@ else:
             # 验证是否出现无搜索结果的提示
             flag = 1
             try:
-                driver.find_element(By.XPATH, '//*[@id="pl_feedlist_index"]/div[3]/div/img')
+                driver.find_element(By.XPATH, '//*[@id="pl_feedlist_index"]/div[3]/div/img') # 这个是提示没有搜索结果的图片
+                print('找不到更多数据')
                 break
             except:
                 pass
